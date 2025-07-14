@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    font-family: "Raleway", sans-serif;
+    align-items: center;
+    background-color: #F6F9FC;
+    color: #0A2540;
+}
+
+.container {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    width: 500px;
+}
+.container h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+.container h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 12px;
+    color: #45505c;
+}
+
+#date {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#presentDateSection, #birthDateSection {
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#calculate {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 10px 20px;
+    background-color: #635BFF;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+#calculate:hover {
+    background-color: #0A2540;
+    gap: 15px;
+}
+
+#calculate h1 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#calculate #arrowHover {
+    display: none;
+}
+#calculate:hover #arrowHover {
+    display: inline;
+}
+
+#calculate #arrowNotHover {
+    display: inline;
+}
+#calculate:hover #arrowNotHover {
+    display: none;
+}

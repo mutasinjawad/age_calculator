@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+    <main class="container">
+        <h1>Age Calculator</h1>
+        <h2>We just need a few quick details.</h2>
+        <div id="date">
+            <div id="presentDateSection">
+                <label for="">Today's Date</label>
+                <input type="text" id="presentDate" placeholder="YYYY-MM-DD" value="" />
+            </div>
+            <div id="birthDateSection">
+                <label for="">Birth Date</label>
+                <input type="date" id="birthDate" placeholder="YYYY-MM-DD" value="" />
+            </div>
+        </div>
+        <div id="calculate">
+            <h1>Calculate Age</h1>
+            <i class="ri-arrow-right-line" id="arrowHover"></i>
+            <i class="ri-arrow-right-s-line" id="arrowNotHover"></i>
+        </div>
+        <p id="result"></p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
