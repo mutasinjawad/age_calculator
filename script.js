@@ -1,4 +1,4 @@
-let today = new Date();
+const today = new Date();
 
 window.addEventListener("DOMContentLoaded", () => {
     const todayDateSection = document.getElementById('presentDate');
@@ -7,6 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById('calculate').addEventListener('click', () => {
     const birthdateSection = document.getElementById('birthDate').value;
+    const persentDateSection = document.getElementById('presentDate').value;
     const resultSection = document.getElementById('resultSection');
 
     if (!birthdateSection) {
@@ -15,14 +16,45 @@ document.getElementById('calculate').addEventListener('click', () => {
     }
 
     const birthdate = new Date(birthdateSection);
+    const presentDate = new Date(persentDateSection);
 
-    let age = today.getFullYear() - birthdate.getFullYear();
+    let age = presentDate.getFullYear() - birthdate.getFullYear();
 
-    const monthDiff = today.getMonth() - birthdate.getMonth();
-    const dayDiff = today.getDate() - birthdate.getDate();
-
-    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+    let monthDiff = presentDate.getMonth() - birthdate.getMonth();
+    let dayDiff = presentDate.getDate() - birthdate.getDate();
+    
+    if (monthDiff === 0 && dayDiff === 0) {
+        resultSection.innerHTML = `<p>Your age: </p> <p>Exactly ${age} years. Happy Birthday!!! </p>`;
+        return;
+    }
+    
+    if (monthDiff > 0 ) {
+        if (dayDiff < 0) {
+            monthDiff += 12;
+            resultSection.innerHTML = `<p>Your age: </p> <p>${age} years ${monthDiff - 1} months ${31 + dayDiff} days.</p>`;
+            return;
+        } else if (dayDiff >= 0) {
+            resultSection.innerHTML = `<p>Your age: </p> <p>${age} years ${monthDiff} months ${dayDiff} days.</p>`;
+            return;
+        }
+    } else if (monthDiff < 0) {
         age--;
+        monthDiff += 12;
+        if (dayDiff < 0) {
+            resultSection.innerHTML = `<p>Your age: </p> <p>${age} years ${monthDiff - 1} months ${31 + dayDiff} days.</p>`;
+            return;
+        } else if (dayDiff >= 0) {
+            resultSection.innerHTML = `<p>Your age: </p> <p>${age} years ${monthDiff} months ${dayDiff} days.</p>`;
+            return;
+        }
+    } else if (monthDiff === 0) {
+        if (dayDiff < 0) {
+            resultSection.innerHTML = `<p>Your age: </p> <p>${age - 1} years 11 months ${31 + dayDiff} days.</p>`;
+            return;
+        } else if (dayDiff > 0) {
+            resultSection.innerHTML = `<p>Your age: </p> <p>${age} years ${monthDiff} months ${dayDiff} days.</p>`;
+            return;
+        }
     }
 
     if (age < 0) {
@@ -30,7 +62,7 @@ document.getElementById('calculate').addEventListener('click', () => {
         return;
     }
 
-    resultSection.innerHTML = `<p>Your age: </p> <p>${age} years.</p>`;
+    resultSection.innerHTML = `<p>Your age: </p> <p>${age} years ${monthDiff} months ${dayDiff} days.</p>`;
 });
 
 flatpickr("#presentDate", {
