@@ -23,7 +23,8 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
-    width: 500px;
+    width: 550px;
+    height: 340px;
 }
 .container h1 {
     font-size: 28px;
@@ -40,7 +41,7 @@ body {
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 #presentDateSection, #birthDateSection {
@@ -51,23 +52,32 @@ body {
     justify-content: space-between;
 }
 
+#resultSection {
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    margin-top: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
 #calculate {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
-    padding: 10px 20px;
+    margin-top: 1rem;
+    padding: 8px 12px;
     background-color: #635BFF;
     color: white;
     border-radius: 50px;
     cursor: pointer;
-    gap: 10px;
+    gap: 5px;
     transition: all 0.2s ease;
 }
 
 #calculate:hover {
     background-color: #0A2540;
-    gap: 15px;
+    gap: 10px;
 }
 
 #calculate h1 {
@@ -87,4 +97,23 @@ body {
 }
 #calculate:hover #arrowNotHover {
     display: none;
+}
+
+#result {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 25px;
+    font-weight: 600;
+    color: #0A2540;
+}
+
+#presentDate, #birthDate {
+    padding: 10px;
+    border: none;
+    background-color: #F6F9FC;
+}
+
+#presentDate:focus, #birthDate:focus {
+    outline: #635BFF solid 2px;
+    border-radius: 4px;
 }

@@ -1,19 +1,23 @@
-// script.js
-document.getElementById('calculate').addEventListener('click', () => {
-    const birthdateInput = document.getElementById('birthDate').value;
-    const result = document.getElementById('result');
+let today = new Date();
 
-    if (!birthdateInput) {
-        result.textContent = "Please select your birthdate.";
+window.addEventListener("DOMContentLoaded", () => {
+    const todayDateSection = document.getElementById('presentDate');
+    todayDateSection.value = today.toISOString().split('T')[0];
+});
+
+document.getElementById('calculate').addEventListener('click', () => {
+    const birthdateSection = document.getElementById('birthDate').value;
+    const resultSection = document.getElementById('resultSection');
+
+    if (!birthdateSection) {
+        resultSection.innerHTML = `<p>Please select your birthdate.</p>`;
         return;
     }
 
-    const birthdate = new Date(birthdateInput);
-    const today = new Date();
+    const birthdate = new Date(birthdateSection);
 
     let age = today.getFullYear() - birthdate.getFullYear();
 
-    // Adjust age if birthday hasn't happened yet this year
     const monthDiff = today.getMonth() - birthdate.getMonth();
     const dayDiff = today.getDate() - birthdate.getDate();
 
@@ -22,9 +26,20 @@ document.getElementById('calculate').addEventListener('click', () => {
     }
 
     if (age < 0) {
-        result.textContent = "Birthdate cannot be in the future!";
+        resultSection.innerHTML = `You cannot be born in the future! Please select a valid birthdate.`;
         return;
     }
 
-    result.textContent = `Your age is ${age} years.`;
+    resultSection.innerHTML = `<p>Your age: </p> <p>${age} years.</p>`;
+});
+
+flatpickr("#presentDate", {
+    dateFormat: "Y-m-d",
+    maxDate: "today",
+    disableMobile: true
+});
+flatpickr("#birthDate", {
+    dateFormat: "Y-m-d",
+    maxDate: "today",
+    disableMobile: true
 });

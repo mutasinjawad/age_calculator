@@ -10,6 +10,7 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="body">
@@ -19,21 +20,23 @@
         <div id="date">
             <div id="presentDateSection">
                 <label for="">Today's Date</label>
-                <input type="text" id="presentDate" placeholder="YYYY-MM-DD" value="" />
+                <input type="text" id="presentDate" placeholder="YYYY-MM-DD" />
             </div>
             <div id="birthDateSection">
                 <label for="">Birth Date</label>
-                <input type="date" id="birthDate" placeholder="YYYY-MM-DD" value="" />
+                <input type="text" id="birthDate" placeholder="YYYY-MM-DD" />
             </div>
         </div>
         <div id="calculate">
-            <h1>Calculate Age</h1>
+            <h1>Calculate</h1>
             <i class="ri-arrow-right-line" id="arrowHover"></i>
             <i class="ri-arrow-right-s-line" id="arrowNotHover"></i>
         </div>
-        <p id="result"></p>
+        <div id="resultSection">
+        </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="script.js"></script>
 </body>
 </html>
